@@ -3,6 +3,7 @@ package org.example.scheduler.entites;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,12 +29,12 @@ public class TreatmentPlanEntity {
 
     @ElementCollection
     @CollectionTable(name = "recurrence_days", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "day_of_week")
+    @Column(name = "days")
     @Enumerated(EnumType.STRING)
     private List<DayOfWeek> recurrenceDays;
 
     @ElementCollection
-    @CollectionTable(name = "recurrence_hours", joinColumns = @JoinColumn(name = "id"))
+   @CollectionTable(name = "recurrence_hours", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "hour")
     private List<Integer> recurrenceHours;
 
