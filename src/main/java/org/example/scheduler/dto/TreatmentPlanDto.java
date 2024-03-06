@@ -1,5 +1,6 @@
 package org.example.scheduler.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,7 @@ import static org.example.ConstraintConstants.*;
 @NoArgsConstructor
 @Data
 public class TreatmentPlanDto {
+
     private TreatmentAction treatmentAction;
     @NotEmpty(message = MISSING_PATIENT)
     private String subjectPatient;
@@ -24,6 +26,7 @@ public class TreatmentPlanDto {
     private LocalDateTime endTime;
     @NotEmpty(message = NO_DAYS_WEEK)
     private List<DayOfWeek> recurrenceDays;
+
     @NotEmpty(message = NO_HOURS_REC)
     private List<Integer> recurrenceHours;
 
