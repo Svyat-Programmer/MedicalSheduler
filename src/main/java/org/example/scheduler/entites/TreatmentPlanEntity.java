@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Data
 public class TreatmentPlanEntity {
-
+    @Id
     private Long id;
     @Enumerated(EnumType.STRING)
     private TreatmentAction treatmentAction;
