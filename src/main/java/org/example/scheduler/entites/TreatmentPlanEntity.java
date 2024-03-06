@@ -8,7 +8,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.List;
 @Entity
-@Table(name = "treatment_plan")
+@Table(name = "TREATMENT_PLAN")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -27,16 +27,16 @@ public class TreatmentPlanEntity {
     private LocalDateTime endTime;
 
 
-    @ElementCollection
-    @CollectionTable(name = "recurrence_days", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "days")
+    //@ElementCollection
+    //@CollectionTable(name = "recurrence_days", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "days", columnDefinition = "bigint array")
     @Enumerated(EnumType.STRING)
     private List<DayOfWeek> recurrenceDays;
 
-    @ElementCollection
-   @CollectionTable(name = "recurrence_hours", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "hour")
-    private List<Integer> recurrenceHours;
+    //@ElementCollection
+   //@CollectionTable(name = "recurrence_hours", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "hour", columnDefinition = "bigint array")
+    private int [] recurrenceHours;
 
 
 
