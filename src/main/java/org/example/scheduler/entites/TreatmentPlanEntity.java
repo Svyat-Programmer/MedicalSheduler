@@ -37,6 +37,9 @@ public class TreatmentPlanEntity {
    //@CollectionTable(name = "recurrence_hours", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "hours", columnDefinition = "bigint array")
     private List <Integer> recurrenceHours;
+   @Setter
+    @Column(name = "processed")
+    private Boolean processed;
 
 
 
