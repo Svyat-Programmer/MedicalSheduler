@@ -52,14 +52,12 @@ public class SchedulerService {
 
                     LocalDateTime nextRecurrence = findNextRecurrence(currentDate, recurrenceDay);
 
-
                     if (nextRecurrence.isBefore(endDate) || nextRecurrence.isEqual(endDate)) {
                         log.info("Next recurrence: {}", nextRecurrence);
                         for (Integer recurrenceHour : treatmentPlan.getRecurrenceHours()) {
                             LocalDateTime taskDateTime = LocalDateTime.of(nextRecurrence.toLocalDate(),
                                     LocalTime.of(recurrenceHour, 0));
                             log.info("Creating task for {}: {}", treatmentPlan.getSubjectPatient(), taskDateTime);
-
 
                             TreatmentTaskEntity taskEntity = new TreatmentTaskEntity();
                             taskEntity.setTreatmentAction(treatmentPlan.getTreatmentAction());
@@ -77,7 +75,6 @@ public class SchedulerService {
         }
 
         treatmentTasks.sort(Comparator.comparing(TreatmentTaskEntity::getStartTime));
-
 
         try {
             treatmentTaskRepo.saveAll(treatmentTasks);

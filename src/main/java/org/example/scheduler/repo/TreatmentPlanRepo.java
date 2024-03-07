@@ -8,7 +8,5 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface TreatmentPlanRepo extends JpaRepository <TreatmentPlanEntity, Long>  {
-
-
     List<TreatmentPlanEntity> findByProcessedIsNullOrProcessedIsFalse();
 }

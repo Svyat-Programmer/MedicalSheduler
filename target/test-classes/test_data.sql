@@ -1,0 +1,1 @@
+INSERT INTO treatment_plan (ID, treatment_action, patient, start_time, end_time, days, hours) VALUES (1, 'ACTION_A', 'Svyat','2024-03-15T08:00:00', '2024-03-25T08:00:00', ARRAY[ 'FRIDAY'], ARRAY[8, 12, 16]);
