@@ -29,14 +29,14 @@ public class TreatmentPlanEntity {
 
     //@ElementCollection
     //@CollectionTable(name = "recurrence_days", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "days", columnDefinition = "bigint array")
+    @Column(name = "days", columnDefinition = "varchar(255) array")
     @Enumerated(EnumType.STRING)
     private List<DayOfWeek> recurrenceDays;
 
     //@ElementCollection
    //@CollectionTable(name = "recurrence_hours", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "hour", columnDefinition = "bigint array")
-    private int [] recurrenceHours;
+    @Column(name = "hours", columnDefinition = "bigint array")
+    private List <Integer> recurrenceHours;
 
 
 

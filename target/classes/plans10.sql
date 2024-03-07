@@ -5,3 +5,4 @@ INSERT INTO treatment_plan (ID,treatment_action, patient, start_time, end_time, 
 INSERT INTO treatment_plan (ID,treatment_action, patient, start_time, end_time, days, hours) VALUES (4, 'ACTION_A', 'Mike','2024-03-18T11:00:00', '2024-03-28T11:00:00', ARRAY['WEDNESDAY', 'SATURDAY'], ARRAY[11, 15, 19]);
 INSERT INTO treatment_plan (ID,treatment_action, patient, start_time, end_time, days, hours) VALUES (5, 'ACTION_A', 'Alex','2024-03-20T13:00:00', '2024-03-30T13:00:00', ARRAY['FRIDAY', 'MONDAY'], ARRAY[13, 17, 21]);
 INSERT INTO treatment_plan (ID,treatment_action, patient, start_time, end_time, days, hours) VALUES (6, 'ACTION_B', 'Sophia','2024-03-25T18:00:00', '2024-04-04T18:00:00', ARRAY['WEDNESDAY', 'SATURDAY'], ARRAY[18, 22, 2]);
+

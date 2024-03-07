@@ -2,9 +2,7 @@ package org.example.scheduler.dto;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.example.scheduler.entites.TreatmentAction;
 
 import java.time.DayOfWeek;
@@ -16,6 +14,8 @@ import static org.example.ConstraintConstants.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Getter
+@Setter
 public class TreatmentPlanDto {
 
     private TreatmentAction treatmentAction;
