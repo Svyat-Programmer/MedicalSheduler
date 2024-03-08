@@ -30,7 +30,7 @@ public class SchedulerService {
         this.treatmentTaskRepo = treatmentTaskRepo;
     }
 
-    @Scheduled(fixedRate = 20000)
+
     public void generateTreatmentTasks() {
         log.info("start generate");
         List<TreatmentTaskEntity> treatmentTasks = new ArrayList<>();
