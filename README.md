@@ -1,10 +1,10 @@
 This backend application works with table data(Clinician Plan) and creates tasks for a Nurse(coding task https://docs.google.com/document/d/1DRoDokcPQPaA6trN8JJ3oLRRROfqS_EE-qHzDamvChE/edit?usp=sharing)
-This application checks a table every 20 sec.
+This application checks a table every 5 sec.
 Running Instructions
 1.Download ZIP from GitHub
 2.Unzip
 3.Enter folder with unzipped project
-4.Run command java -jar out/artifacts/MedicalScheduler_jar/MedicalScheduler.jar. As a resul
+4.Run command java -jar out/artifacts/MedicalScheduler1.2_jar/MedicalScheduler.jar. As a resul
 
 I use this script to create a plans:
 
