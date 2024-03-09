@@ -4,9 +4,12 @@ Running Instructions
 1.Download ZIP from GitHub
 2.Unzip
 3.Enter folder with unzipped project
-4.Run command java -jar out/artifacts/MedicalScheduler1.2_jar/MedicalScheduler.jar. As a resul
+4. run mvn clean package(all unittests will be run)
+5. in folder target there will be file medications-0.0.1.jar
+6. run java -jar target/medications-0.0.1.jar
 
-I use this script to create a plans:
+
+use this script to create a plans:
 
 INSERT INTO treatment_plan (ID, treatment_action, patient, start_time, end_time, days, hours) VALUES (1, 'ACTION_A', 'Svyat','2024-03-15T08:00:00', '2024-03-25T08:00:00', ARRAY['WEDNESDAY', 'FRIDAY'], ARRAY[8, 12, 16]);
 INSERT INTO treatment_plan (ID,treatment_action, patient, start_time, end_time, days, hours) VALUES (5, 'ACTION_A', 'Alex','2024-03-20T13:00:00', '2024-03-30T13:00:00', ARRAY['FRIDAY', 'MONDAY'], ARRAY[13, 17, 21]);

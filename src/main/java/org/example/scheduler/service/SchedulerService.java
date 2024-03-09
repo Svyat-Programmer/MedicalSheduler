@@ -19,7 +19,6 @@ import java.util.Comparator;
 import java.util.List;
 @Slf4j
 @Service
-
 public class SchedulerService {
 
     private final TreatmentPlanRepo treatmentPlanRepo;
