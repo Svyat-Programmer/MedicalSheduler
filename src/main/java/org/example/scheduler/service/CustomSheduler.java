@@ -16,7 +16,7 @@ public class CustomSheduler {
     }
     @PostConstruct
     public void init(){
-        log.info("customSchedulerStart");
+        log.debug("customSchedulerStart");
         Thread schedulerThread  = new Thread(()-> {
             while (true){
                 try {

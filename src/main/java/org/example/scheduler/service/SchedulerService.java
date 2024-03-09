@@ -19,6 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 @Slf4j
 @Service
+
 public class SchedulerService {
 
     private final TreatmentPlanRepo treatmentPlanRepo;
@@ -32,32 +33,32 @@ public class SchedulerService {
 
 
     public void generateTreatmentTasks() {
-        log.info("start generate");
+        log.debug("start generate");
         List<TreatmentTaskEntity> treatmentTasks = new ArrayList<>();
 
         LocalDateTime currentDate = LocalDateTime.now();
 
         List<TreatmentPlanEntity> activeTreatmentPlans = treatmentPlanRepo.findByProcessedIsNullOrProcessedIsFalse();
-        log.info("Found {} active treatment plans.", activeTreatmentPlans.size());
+        log.debug("Found {} active treatment plans.", activeTreatmentPlans.size());
         for (TreatmentPlanEntity treatmentPlan : activeTreatmentPlans) {
-            log.info("Processing treatment plan for patient '{}'", treatmentPlan.getSubjectPatient());
+            log.debug("Processing treatment plan for patient '{}'", treatmentPlan.getSubjectPatient());
             LocalDateTime endDate = treatmentPlan.getEndTime();
-            log.info("End date for the plan: {}", endDate);
+            log.debug("End date for the plan: {}", endDate);
 
 
             while (currentDate.isBefore(endDate) || currentDate.isEqual(endDate)) {
-                log.info("Current date: {}", currentDate);
+                log.debug("Current date: {}", currentDate);
                 for (DayOfWeek recurrenceDay : treatmentPlan.getRecurrenceDays()) {
-                    log.info("Processing recurrence day: {}", recurrenceDay);
+                    log.debug("Processing recurrence day: {}", recurrenceDay);
 
                     LocalDateTime nextRecurrence = findNextRecurrence(currentDate, recurrenceDay);
 
                     if (nextRecurrence.isBefore(endDate) || nextRecurrence.isEqual(endDate)) {
-                        log.info("Next recurrence: {}", nextRecurrence);
+                        log.debug("Next recurrence: {}", nextRecurrence);
                         for (Integer recurrenceHour : treatmentPlan.getRecurrenceHours()) {
                             LocalDateTime taskDateTime = LocalDateTime.of(nextRecurrence.toLocalDate(),
                                     LocalTime.of(recurrenceHour, 0));
-                            log.info("Creating task for {}: {}", treatmentPlan.getSubjectPatient(), taskDateTime);
+                            log.debug("Creating task for {}: {}", treatmentPlan.getSubjectPatient(), taskDateTime);
 
                             TreatmentTaskEntity taskEntity = new TreatmentTaskEntity();
                             taskEntity.setTreatmentAction(treatmentPlan.getTreatmentAction());
@@ -78,9 +79,9 @@ public class SchedulerService {
 
         try {
             treatmentTaskRepo.saveAll(treatmentTasks);
-            log.info("Saved {} tasks to the database.", treatmentTasks.size());
+            log.debug("Saved {} tasks to the database.", treatmentTasks.size());
         } catch (Exception e) {
-            log.error("Error saving tasks to the database.", e);
+            log.debug("Error saving tasks to the database.", e);
         }
         activeTreatmentPlans.forEach(p-> {p.setProcessed(true);
         treatmentPlanRepo.save(p);});
